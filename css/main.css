@@ -1,0 +1,165 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*html, body { height: 100%; }*/
+
+body {
+  background-color: #FFF;
+  font: 13.34px Helvetica, Arial, sans-serif;
+  font-size: small;
+  text-align: center;
+}
+
+h5, h6 { font-size: 100%; }
+
+h1 { font-size: 200%; }
+h2 { font-size: 170%; }
+h3 { font-size: 150%; }
+h4 { font-size: 120%; }
+
+h1 { margin: 1em 0; }
+h2 { margin: 0.5em 0 0.25em 0; }
+p { margin: 1em 0; }
+
+a         { color: #05a; }
+a:hover   { color: #0f53ff; }
+a:visited { color: #a0a; }
+
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
+ul.posts {
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+
+ul.posts a, table.posts a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul.posts h2, table.posts h3 {  
+    font-weight: lighter;
+} 
+
+ul.posts span {
+  color: #aaa;
+  font-family: Inconsolata, monospace;
+  font-size: smaller;
+}
+
+table.posts td {
+  padding: 1em;
+}
+
+table.posts td:hover {
+  background: #eee;
+}
+
+div.date {
+  color: #aaa;
+  margin: 0;
+}
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
+
+.site {
+  font-size: 115%;
+  text-align: justify;
+  width: 55em;
+  margin: 3em auto 2em;
+  line-height: 1.5em;
+}
+
+.site .header a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.site .header h1.title {
+  display: inline-block;
+  margin: 0 0 1em 0;
+}
+
+.site .header h1.title a {
+  color: #a00;
+}
+
+.site .header h1.title a:hover {
+  color: #000;
+}
+
+.site .header a.extra {
+  color: #aaa;
+  margin-left: 1em;
+}
+
+.site .header a.extra:hover {
+  color: #000;
+}
+
+.site .meta {
+  color: #aaa;
+}
+
+.site .footer {
+  font-size: 80%;
+  color: #666;
+  border-top: 4px solid #eee;
+  margin-top: 2em;
+  overflow: hidden;
+}
+
+/*****************************************************************************/
+/*
+/* Posts
+/*
+/*****************************************************************************/
+
+/* standard */
+.post pre {
+  border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 .4em;
+}
+
+.post ul, .post ol {
+  margin-left: 1.35em;
+}
+
+.post code {
+  font-size: 100%;
+  border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 .2em;
+}
+
+.post pre code {
+  border: none;
+}
+
+/* terminal */
+.post pre.terminal {
+  border: 1px solid #000;
+  background-color: #333;
+  color: #FFF;
+}
+
+.post pre.terminal code {
+  background-color: #333;
+}
