@@ -17,8 +17,14 @@
 
         <div class="site">
           <div class="header">
-            <h1 class="title"><a href="{{ site.url }}">{{ site.name }}</a></h1>
-            <a class="extra" href="{{ site.url }}">Home</a>
+            <a href="{{ site.url }}"><table class="title-logo"><tr>
+              <td><img class="logo" src="{{ site.url }}/images/logo.svg" height="64" alt="Frapa"/></td>
+              <td><h1 class="title">{{ site.name }}</h1></td>
+            </tr></table></a>
+            <!--<a class="extra" href="{{ site.url }}">Home</a>-->
+            <table id="line"><tr>
+              <td id="c1"></td> <td id="c2"></td> <td id="c3"></td> <td id="c4"></td>
+            </tr></table>
           </div>
 
           {{ content }}
