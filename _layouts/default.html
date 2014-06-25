@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="{{ site.url }}/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ site.url }}/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <a href="{{ site.url }}"><table class="title-logo"><tr>
+              <td><img class="logo" src="{{ site.url }}/images/logo.svg" height="64" alt="Frapa"/></td>
+              <td><h1 class="title">{{ site.name }}</h1></td>
+            </tr></table></a>
+            <!--<a class="extra" href="{{ site.url }}">Home</a>-->
+            <table id="line"><tr>
+              <td id="c1"></td> <td id="c2"></td> <td id="c3"></td> <td id="c4"></td>
+            </tr></table>
+          </div>
+
+          {{ content }}
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Francesco Pasa - Content licensed under a
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US">
+                  Creative Commons BY-SA License.
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>

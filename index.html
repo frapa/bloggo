@@ -1,0 +1,36 @@
+---
+layout: default
+title: Frapa
+---
+
+<div id="home">
+  <h1><img class="section-title-img" src="{{ site.url }}/images/lastest.svg" height="48" />Lastest posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if forloop.index0 < 3 %}
+        <li>
+          <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
+          <div class="date">{{ post.date | date_to_string }}</div>
+          {{ post.excerpt }}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  
+  <h1><img class="section-title-img" src="{{ site.url }}/images/archive.svg" height="48" />Archive</h1>
+  <table class="posts">
+    <tbody>
+      {% for post in site.posts %}
+        {% if forloop.index > 3 %}
+          {% cycle '<tr>', '', '' %}
+            <td>
+              <a href="{{ site.url }}{{ post.url }}"><h3>{{ post.title }}</h3>
+              <div class="meta">{{ post.date | date_to_string }}</div>
+              {{ post.excerpt }}</a>
+            </td>
+          {% cycle '', '', '</tr>' %}
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
