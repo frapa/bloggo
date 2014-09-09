@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Frapa - Proprietà delle equazioni di Lagrange</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <a href=""><table class="title-logo"><tr>
+              <td><img class="logo" src="/images/logo.svg" height="64" alt="Frapa"/></td>
+              <td><h1 class="title">Frapa</h1></td>
+            </tr></table></a>
+            <!--<a class="extra" href="">Home</a>-->
+            <table id="line"><tr>
+              <td id="c1"></td> <td id="c2"></td> <td id="c3"></td> <td id="c4"></td>
+            </tr></table>
+          </div>
+
+          <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h2>Proprietà delle equazioni di Eulero-Legrange</h2>
+
+<p>Queste equazioni ci permettono di arrivare direttamente ad equazioni differenziali
+di puro moto, da cui si può calcolare il moto del sistema. Il principale vantaggio
+rispetto alla seconda legge di Newton è la facilità con cui si possono ricavare
+equazioni di puro moto con un sistema di coordinate generalizzate. </p>
+
+<p>Le equazioni di Lagrange hanno le seguenti notevoli proprietà.</p>
+
+<h3>Riduzione in forma normale</h3>
+
+<p>Le equazioni di Eulero-Lagrange sono sempre riducibili in <strong>forma normale</strong>, cioè
+si possono scrivere nella forma:</p>
+
+<p>$$ \ddot{q}^k = f_k(t, q, \dot{q}) $$</p>
+
+<p>dove ho scritto \(q\) al posto di \(q^1, \dots, q^n\) e \(\dot{q}\) al
+posto di \(\dot{q}^1, \dots, \dot{q}^n\) per brevità. Scrivere
+le equazioni in questa forma ci assicura che esista una sola soluzione per
+ogni scelta delle condizioni iniziali (grazie a qualche teorema sulle equazioni
+differenziali). Questo è abbastanza ovvio dal punto
+di vista fisico (quale comportamento sceglierebbe il sistema se fossero possibili
+più soluzioni?), ma vale la pena provarlo per testare se la teoria lagrangiana
+sia ben fondata.</p>
+
+<p>Per dimostrare questà proprietà procediamo come segue: innanzitutto, riprendendo
+quanto scritto nella pagina sulle <a href="eq_lagrange.html">equazioni di Lagrange</a>:</p>
+
+<p>$$ \vec{v}_i = \frac{d\vec{x}_i}{dt} =
+\frac{\partial \vec{x}_i}{\partial t} +
+\sum_{j=1}^n \frac{\partial \vec{x}_i}{\partial q^j} \dot{q}^j
+\qquad \forall i \in {1, \dots, N} $$</p>
+
+<p>Inserendo la velocità in questa forma all&#39;interno dell&#39;energia cinetica si ottiene</p>
+
+<p>$$ T = \frac{1}{2} \sum_{i=1}^N m_i \vec{v}_i^2 =
+ \frac{1}{2} \sum_{i=1}^N m_i
+\left(\frac{\partial \vec{x}}{\partial t} +
+\sum_{j=1}^n \frac{\partial \vec{x}_i}{\partial q^j} \dot{q}^j\right) \cdot
+\left(\frac{\partial \vec{x}}{\partial t} +
+\sum_{j=1}^n \frac{\partial \vec{x}_i}{\partial q^j} \dot{q}^j\right) = \
+T_0 + T_1 + T_2
+$$</p>
+
+<p>dove \(T_0 + T_1 + T_2\) sono i termini derivati dalla moltiplicazione delle
+quantità tra parentesi (il pedice indica il grado nelle variabili puntate):</p>
+
+<p>$$ \begin{eqnarray}
+T_0 &amp; = &amp; \frac{1}{2} \sum_{i=1}^N m_i
+\left(\frac{\partial \vec{x}}{\partial t} \right)^2 \\
+T_1 &amp; = &amp; \frac{1}{2} \sum_{i=1}^N m_i
+\left(\frac{\partial \vec{x}}{\partial t} \right) \cdot
+\sum_{j=1}^n \frac{\partial \vec{x}_i}{\partial q^j} \dot{q}^j =
+\sum_{j=1}^n b_j(t, q)\dot{q}^j \\
+T_2 &amp; = &amp; \frac{1}{2} \sum_{i=1}^N m_i
+\left(\sum_{j=1}^n \frac{\partial \vec{x}_i}{\partial q^j} \dot{q}^j\right)^2 =
+\frac{1}{2} \sum_{i=1}^N m_i
+\sum_{j=1}^n\sum_{k=1}^n \frac{\partial \vec{x}_i}{\partial q^j}
+\cdot \frac{\partial \vec{x}_i}{\partial q^k} \dot{q}^j\dot{q}^k \\
+&amp; = &amp; \sum_{j,k=1}^n a_{jk}(t, q) \dot{q}^j\dot{q}^k \\
+\end{eqnarray}$$</p>
+
+<p>(occhio ai prodotti scalari e ai quadrati).
+Scrivendo le equazioni di Eulero-Lagrange con questa formula per l&#39;energia
+cinetica, si ottiene, dopo aver portato a destra i termini contenenti
+\(T_0\) e \(T_1\)</p>
+
+<p>$$ \sum_{r=1}^n a_{jr}(t, q) \ddot{q}^r = f_j(t, q, \dot{q}) \qquad \forall
+j \in {1, \dots, n} $$</p>
+
+<p>dove il termine di sinistra si ottiene calcolando</p>
+
+<p>$$ \frac{d}{dt} \frac{\partial T_2}{\partial \dot{q}^r} -
+\frac{\partial T_2}{\partial q^r} = 
+\frac{d}{dt} \sum_{j,k=1}^n a_{jk}(t, q) \frac{\partial (\dot{q}^j\dot{q}^k)}
+{\partial \dot{q}^r} -
+\sum_{j,k=1}^n \frac{\partial (a_{jk} \dot{q}^j\dot{q}^k)}{\partial q^r}
+=  \sum_{r=1}^n a_{jr}(t, q) \ddot{q}^r + g(t, q, \dot{q}) $$</p>
+
+<p>L&#39;ultima uguaglianza è dovuta al fatto che sopravvive solo il termine di indice
+r nella doppia sommatoria, mentre l&#39;altro pezzo non produce nessun termine
+con la derivata seconda del tempo, per cui ho indicato il risultato con g.</p>
+
+<p>La funzione \(f_j\) oltre a contenere g, continene le componenti lagrangiane
+delle forze attive e le derivate di \(T_0\) e \(T_1\).</p>
+
+<p>Ora per ridurre questo sistema di equazioni (è un sistema! Ricordo che
+c&#39;è un equazione per ogni j) in forma normale, è necessario che il sistema sia
+risolvibile, ovvero che la matrice \(a_{jr}\) sia invertibile.</p>
+
+<p>Consideriamo quindi l&#39;espressione </p>
+
+<p>$$ \tau = \frac{1}{2} \sum_{i=1}^N m_i\;
+\delta \vec{x}_i \cdot \delta \vec{x}_i $$</p>
+
+<p>dove il \(\delta x_i\) sta ad indicare uno <strong>spostamento virtuale</strong>, ovvero
+uno spostamento nello spazio di simultaneità \(\Sigma_t\) (si chiama virtuale
+perché è la differenza tra due configurazioni allo <em>stesso tempo</em> t, mentre
+uno spostamento reale necessita anche del tempo, poiché i punti si spostano nel
+tempo). I \(\delta\) servono per sottolineare questo particolare.
+Questa espressione è sempre positiva, perché le masse sono positive e per il
+prodotto scalare.</p>
+
+<p>Possiamo scriverla equivalentemente come:</p>
+
+<p>$$ \tau = \frac{1}{2} \sum_{i=1}^N m_i\;
+\frac{\partial \vec{x}_i}{\partial q^j} \cdot
+\frac{\partial \vec{x}_i}{\partial q^k} \delta q^j \delta q^k =
+a_{jk}\delta q^j \delta q^k \geq 0 $$</p>
+
+<p>Ora, se i vincoli sono olonomi (e lo sono, sennò non potremmo scrivere le eq. di
+Lagrange), in teorema della funzione implicita ci assicura che
+\(\delta\vec{x}_i = 0 \Leftrightarrow \delta q^k = 0 \; \forall k\).
+Questo prova che la matrice \(a_{jk}\) è non singolare (quindi invertibile) e che sia
+definita positiva.</p>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Francesco Pasa - Content licensed under a
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US">
+                  Creative Commons BY-SA License.
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>
