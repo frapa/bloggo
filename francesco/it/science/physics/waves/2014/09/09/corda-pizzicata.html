@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Corda Pizzicata</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/francesco/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/francesco/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <a href="/francesco"><table class="title-logo"><tr>
+              <td><img class="logo" src="/francesco/images/logo.svg" height="64" alt="Frapa"/></td>
+              <td><h1 class="title">Frapa</h1></td>
+            </tr></table></a>
+            <!--<a class="extra" href="/francesco">Home</a>-->
+            <table id="line"><tr>
+              <td id="c1"></td> <td id="c2"></td> <td id="c3"></td> <td id="c4"></td>
+            </tr></table>
+          </div>
+
+          <h2>Corda Pizzicata</h2>
+<p class="meta">09 Sep 2014</p>
+
+<div class="post">
+<p>Un paio di giorni fa, invece di studiare le onde elettromagnetiche,
+mi sono perso nello scrivere un programmino in python che mostra come vibra una corda pizzicata,
+e ho pensato di condividelo qui. Le ore di studio ormai sono perse comunque!</p>
+
+<p>In realtà l&#39;idea non è originale, anzi l&#39;ho copiata dal mio prof. di
+Fisica Generale 3, che aveva usato un programmino simile (ma scritto in Matlab)
+per spiegarci l&#39;equazione delle onde.</p>
+
+<h3>Per gli impazienti</h3>
+
+<p>Lo script è distribuito sotto licenza GPL 3.</p>
+
+<p><a href="/francesco/downloads/fourier-0.1.py" class="button">
+  Scarica<br/>
+  <small>fourier-0.1.py | 2.6 kB</small>
+</a></p>
+
+<h4>Dipendenze</h4>
+
+<p>Lo script ha bisogno delle seguenti librerie per funzionare:</p>
+
+<ul>
+<li><a href="http://matplotlib.org/">Matplotlib</a></li>
+<li><a href="http://www.scipy.org/">Numpy and Scipy</a></li>
+</ul>
+
+<p>Su Ubuntu 14.04 (e precedenti) è sufficiente eseguire questo comando per installarle:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo apt-get install python-matplotlib python-numpy python-scipy
+</code></pre></div>
+<p>Per altri sistemi operativi si faccia riferimento ai siti delle rispettive librerie.</p>
+
+<h4>Come usarlo</h4>
+
+<p>È sufficiente aprire un terminale nella cartella dov&#39;è stato scaricato lo script ed eseguire:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">python fourier.py
+</code></pre></div>
+<p>Lo script mostra un animazione della corda pizzicata. Inoltre genera un video <code>fourier.mp4</code>
+in modo da poter visualizzare l&#39;animazione senza dover ricalcolare tutti i passi. Sul mio PC
+(processore Celeron 1.3 GHz) impiega circa 30 secondi a elaborare l&#39;animazione.</p>
+
+<p>Purtroppo lo script funziona solo con la versione 2.7 di python poichè, in python 3, numpy da un errore
+al momento del salvataggio del video.</p>
+
+<h3>La matematica</h3>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<p>Voglio anche descrivere brevemente com&#39;è possibile ottenere una descrizione matematica di
+come si comporta una corda pizzicata. Questa è la matematica implementata nel programmino.</p>
+
+<p>La sezione è spezzata in 2 parti: nella prima è descritto come risolvere l&#39;equazione
+delle onde, mentre nel secondo ho applicato le soluzioni trovate al problema della
+corda pizzicata.</p>
+
+<h4>Soluzioni dell&#39;equazione delle onde</h4>
+
+<p>L&#39;equazione che governa il comportamento delle perturbazioni su una fune è la famosa <strong>equazione delle onde</strong>,
+che si può ricavare dalla seconda legge di Newton:</p>
+
+<p>$$ \frac{\partial^2 f}{\partial x^2} - \frac{1}{v^2}\frac{\partial^2 f}{\partial t^2} = 0 $$</p>
+
+<p>In questa equazione \( f = f(x, t) \) indica lo spostamento della corda dalla posizione di equilibrio,
+che non deve essere troppo grande (approssimazione che si fa per ricavare l&#39;equazione).
+Tra tutte le soluzioni che l&#39;equazione delle onde ammette (si può calcolare la soluzione generale,
+ma non è semplicissimo), a noi interessano le soluzioni <strong>separabili</strong>. Le soluzioni separabili
+sono funzioni con la seguente forma:</p>
+
+<p>$$ f(x, t) = g(x)h(t) $$</p>
+
+<p>Queste soluzioni possono sembrare molto particolari e in effetti lo sono. Tuttavia occorre ricordare
+che l&#39;equazione delle onde è omogenea e quindi la somma di soluzioni è a sua volta soluzione.
+Questo fatto, unito alle serie di Fourier, ci permetterà di trovare la soluzione generale.</p>
+
+<p>Imponendo che la soluzione sia separabile e inserendola nell&#39;equazione si ottiene:</p>
+
+<p>$$ \frac{\partial^2 g(x)}{\partial x^2}h(t) = \frac{1}{v^2}\frac{\partial^2 h(t)}{\partial t^2}g(x) $$</p>
+
+<p>o meglio</p>
+
+<p>$$ \frac{v^2}{g(x)}\frac{\partial^2 g(x)}{\partial x^2} = \frac{1}{h(t)}\frac{\partial^2 h(t)}{\partial t^2} = \text{costante} $$</p>
+
+<p>I due termini devono essere costanti perchè altrimenti mantenendo la stessa posizione (mantenendo fisso x) ma spostandosi ad un altro
+istante (variando t), l&#39;uguaglianza non varrebe più. La costante può essere positiva (si avranno allora soluzioni
+<strong>iperboliche</strong>, ovvero un esponenziale che va all&#39;infinito), oppure negativa (per cui si ottengono soluzioni
+<strong>periodiche</strong>, ovvero soluzioni sinusiodali). A noi chiaramente interessano le soluzioni periodiche, poichè quelle
+iperboliche non hanno significato fisico.</p>
+
+<p>Imponiamo quindi che la costante valga \(-\omega^2\) (in seguito si vedrà che questa costante è proprio
+una pulsazione, per cui ho scelto la lettera \(\omega\)). </p>
+
+<p>$$ \frac{\partial^2 g(x)}{\partial x^2} = -\frac{\omega^2}{v^2}g(x) \qquad \text{e} \qquad \frac{\partial^2 h(t)}{\partial t^2} = -\omega^2 h(t) $$</p>
+
+<p>Le soluzione sono facilmente individuabili e sono</p>
+
+<p>$$ g(x) = G\cos(\frac{w}{v}x + \phi) \qquad \text{e} \qquad h(t) = H\cos(wt + \psi) $$</p>
+
+<p>come si può facilmente verificare (Chiaramente sostituendo il coseno con un seno non cambia nulla
+poiché seno e coseno sono essenzialmente la stessa funzione traslata di \(\pi/2\). Questa possibilità è inclusa
+nelle costanti \( \phi \;\text{e}\; \psi \). Sono inoltre incluse le combinazioni lineari di seni e coseni,
+che possono sempre essere scritte come un singolo seno o coseno, utilizzando le formule di addizione.).</p>
+
+<p>Ora possiamo ricostruire la soluzione:</p>
+
+<p>$$ f(x, t) = g(x)h(t) = G\cos(\frac{w}{v}x + \phi)  H\cos(wt + \psi)$$</p>
+
+<p>Come tutte le equazioni differenziali, è necessario imporre delle condizioni iniziali per determinare le costanti
+nella soluzione. Vedremo come fare nella prossima sezione!</p>
+
+<p>La soluzione ha una proprietà notevole: nei punti dove \( \cos(\frac{w}{v}x + \phi) = 0 \), la
+soluzione è nulla per tutti i tempi. Questi punti si chiamano <strong>nodi</strong>.</p>
+
+<h4>Il problema della corda pizzicata.</h4>
+
+<p>Supponiamo di avere una corda tesa come in <a href="#fig1">Figura 1</a>, pizzicata nel punto a, con 0 &lt; a &lt; L.
+La fune viene spostata dall&#39;equilibrio di una distanza h e poi, al tempo t = 0, viene lasciata.
+Il programmino mostra quello che succede di seguito, e voglio ricavarlo qui, in formule.</p>
+
+<table class="sidecap"><tr>
+  <td>
+    <img src="/francesco/images/fourier/corda_pizzicata.svg" height="360" />
+  </td>
+  <td class="caption">
+    <a name="fig1">Figura 1</a>
+    La figura mostra la corda all'istante iniziale. In questo istante la corda viene rilasciata.
+    Il nostro compito è calcolare come vibrerà la fune col passare del tempo. La dimensione verticale
+    è esagerata (l'eq. delle onde vale solo per piccoli scostamenti dalla posizione di equilibrio,
+    cioè per h piccoli).
+  </td>
+</tr></table>
+
+<p>La posizione della corda deve evidentemente soddisfare l&#39;equazione delle onde. Abbiamo che:</p>
+
+<p>$$ f(x, 0) = \begin{cases} \frac{h}{a} x &amp; 0 &lt; x &lt; a \\ \frac{h(L - x)}{L - a} &amp; a &lt; x &lt; L \end{cases} $$</p>
+
+</div>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Francesco Pasa - Content licensed under a
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US">
+                  Creative Commons BY-SA License.
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>

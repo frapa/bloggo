@@ -143,3 +143,4 @@ La posizione della corda deve evidentemente soddisfare l'equazione delle onde. A
 
 $$ f(x, 0) = \begin{cases} \frac{h}{a} x & 0 < x < a \\\ \frac{h(L - x)}{L - a} & a < x < L \end{cases} $$
 
+PAGINA DA COMPLETARE

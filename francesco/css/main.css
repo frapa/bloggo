@@ -1,0 +1,284 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*html, body { height: 100%; }*/
+
+body {
+  background-color: #FFF;
+  text-align: center;
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: lighter;
+}
+
+h5, h6 { font-size: 100%; font-weight: lighter; }
+
+h1 {
+  font-size: 200%;
+  font-weight: lighter;
+  font-variant: small-caps;
+  margin: 1em 0;
+}
+
+h2 {
+  font-size: 170%;
+	font-weight: lighter;
+	margin: 1.25em 0 0.25em 0;
+}
+
+h3 {
+	font-size: 150%;
+	font-weight: lighter;
+	margin: 1.25em 0 0.75em 0;
+	padding-bottom: 0.25em;
+	border-bottom: 0.1em solid #eee;
+}
+
+h4 {
+	font-size: 120%;
+	font-weight: lighter;
+	margin: 1.25em 0 0.75em 0;
+	padding-bottom: 0.2em;
+	border-bottom: 1px solid #eee;
+}
+	
+p { margin: 0.75em 0; }
+
+a         { color: #0090D2; text-decoration: none; }
+a:hover   { text-decoration: underline; }
+a:visited { color: #0063A6; }
+
+a.button {
+	display: inline-block;
+	padding: 0.75em 1.5em;
+	cursor: pointer;
+	background-color: #3FB8E8;
+	box-shadow: 0 3px 0 0 #3293BA;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	text-decoration: none;
+	outline: 0;
+  line-height: 1em;
+}
+
+a.button:hover {
+	background-color: #1baae3;
+}
+
+a.button:active {
+	box-shadow: 0px 1px 0px 0px #3293ba;
+}
+
+small {
+	font-size: 75%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+table.sidecap {
+  margin: 0 auto;
+}
+
+table.sidecap td.caption {
+  font-size: small;
+  padding-left: 2em;
+  max-width: 20em;
+}
+
+table.sidecap td.caption a:first-child {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
+ul.posts {
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+
+/*ul.posts a, table.posts a {
+    color: inherit;
+    text-decoration: none;
+}*/
+
+ul.posts h2 a {
+	text-decoration: none;
+}
+
+ul.posts span {
+  color: #aaa;
+  font-family: Inconsolata, monospace;
+  font-size: smaller;
+}
+
+table.posts td {
+  padding: 1em;
+}
+
+table.posts td:hover {
+  background: #eee;
+}
+
+div.date {
+  color: #aaa;
+  margin: 0;
+}
+
+img.section-title-img {
+    float: left;
+    margin-right: 0.25em;
+    position: relative;
+    top: -0.3em;
+}
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
+
+.site {
+  font-size: 105%;
+  text-align: justify;
+  max-width: 56em;
+  padding: 0 1em;
+  margin: 1em auto 1em;
+  line-height: 1.5em;
+}
+
+.site .header {
+    margin-bottom: 2em;
+}
+
+.site .header a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.site .header table.title-logo {
+  display:inline-block;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.site .header img.logo {
+  margin-right: 0.5em;
+}
+
+.site .header h1.title {
+  display: inline-block;
+  color: #333;
+  font-variant: small-caps;
+  margin: 0;
+}
+
+.site .header a.extra {
+  color: #aaa;
+  margin-left: 1em;
+}
+
+.site .header a.extra:hover {
+  color: #000;
+}
+
+.site .header table#line {
+  width: 100%;
+  height: 0.25em;
+  border-collapse: collapse;
+}
+
+.site .header table td#c1 {
+  background-color: #00a8ff;
+}
+
+.site .header table td#c2 {
+  background-color: #8ad01d;
+}
+
+.site .header table td#c3 {
+  background-color: #ffd800;
+}
+
+.site .header table td#c4 {
+  background-color: #ffa800;
+}
+
+.site .meta {
+  color: #aaa;
+	margin: 0;
+}
+
+.site .footer {
+  font-size: 80%;
+  color: #666;
+  border-top: 0.35em solid #eee;
+  margin-top: 2em;
+  overflow: hidden;
+}
+
+/*****************************************************************************/
+/*
+/* Posts
+/*
+/*****************************************************************************/
+
+/* standard */
+.post pre {
+  border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 .4em;
+}
+
+ul, ol {
+  margin-left: 1.35em;
+}
+
+blockquote {
+  margin: 0 2em;
+  padding-left: 0.5em;
+  border-left: 0.35em solid #eee;
+}
+
+.post code {
+  font-size: 100%;
+  border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 .2em;
+}
+
+.post pre code {
+  border: none;
+}
+
+/* terminal */
+.post pre.terminal {
+  border: 1px solid #000;
+  background-color: #333;
+  color: #FFF;
+}
+
+.post pre.terminal code {
+  background-color: #333;
+}
+
+/*****************************************************************************/
+/*
+/* Custom
+/*
+/*****************************************************************************/

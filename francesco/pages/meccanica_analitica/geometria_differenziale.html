@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Frapa</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/francesco/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/francesco/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <a href="/francesco"><table class="title-logo"><tr>
+              <td><img class="logo" src="/francesco/images/logo.svg" height="64" alt="Frapa"/></td>
+              <td><h1 class="title">Frapa</h1></td>
+            </tr></table></a>
+            <!--<a class="extra" href="/francesco">Home</a>-->
+            <table id="line"><tr>
+              <td id="c1"></td> <td id="c2"></td> <td id="c3"></td> <td id="c4"></td>
+            </tr></table>
+          </div>
+
+          <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h2>Geometria differenziale</h2>
+
+<h3>Varietà</h3>
+
+<p>Una <strong>varietà</strong> è una &quot;superficie&quot; generalizzata, vale a dire un&#39;iper-superficie
+di n dimensioni, che localmente è simile ad uno spazio euclideo della stessa
+dimensione.</p>
+
+<blockquote>
+<p><strong>Esempi:</strong> Una retta, un cerchio o una parabola sono verietà
+a una dimensione, mentre un piano, la superficie di una sfera, o di un toro
+sono varietà a 2 dimensioni. Lo spazio che ci circonda è un esempio di una
+varietà tridimensionale, come potrebbe essere lo spazio interno di una ciambella.
+Tutte queste forme da vicino somigliano ad uno spazio euclideo.
+Una figura a 8 non è una varietà, poichè il punto di intersezione tra le linee
+ha una geometria che localmente non può essere approssimata a una geometria euclidea.</p>
+</blockquote>
+
+<table class="sidecap"><tr>
+  <td>
+    <img src="images/varieta.svg" height="300" />
+  </td>
+  <td class="caption">
+    <a name="fig1">Figura 1</a>
+    Quest'immagine, tratta spudoratamente da Wikipedia, mostra vari esempi di varietà
+    unidimensionali. Una varietà può essere composta anche da pezzi distinti, ma non
+    può autointersecarsi, poiché altrimenti nei punti di intersezione la geometria
+    sarebbe localmente non euclidea. 
+  </td>
+</tr></table>
+
+<p>Una varietà è un insieme M di punti a cui è collegato un altro insieme, detto atlante,
+di carte locali. Come la superficie della terra (che è una varietà bidimensionale)
+non può essere rappresentata interamente da una sola carta geografica (per
+esempio una comune carta geografica omette i poli) ed è necessario suddividere
+la superficie in parti chiamate carte e metterle in un atlante, anche in una generica
+verietà è necessario suddividere la superficie in pezzi e raccogliere i vari pezzi
+in un insieme, in modo da descrivere tutta la superficie.</p>
+
+<p>Matematicamente ogni carta è data da un sottoinsieme \( U \subset M \) e da
+una funzione iniettiva \( \phi: U -&gt; R^n \) che associa ogni punto di U ad uno spazio
+euclideo, fornendo in tal modo un sistema di coordinate. Una carta è quindi una
+coppia \( (U, \phi) \).</p>
+
+<p>È chiaro che possono esserci un infinità di diversi atlanti per la stessa varietà.</p>
+
+<p>Due carte \( (U, \phi) \) e \( (V, \psi) \)  possono anche sovrapporsi e
+descrivere la stessa parte di &quot;superficie&quot;. In questo caso le carte locali
+devono essere compatibili, cioè le funzioni \( \phi \circ \psi^{-1} \) e
+\( \psi \circ \phi^{-1}  \) devono essere continue (questo deve valere
+nell&#39;intersezione \( U \cap V \) naturalmente). Queste funzioni trasformano
+le coordinate di una carta in quelle dell&#39;altra, e sono chiamate <strong>funzioni
+di transizione</strong>.</p>
+
+<p>Dal punto di vista matematico c&#39;è anche qualche altra richiesta topologica, ma
+a meno di casi patologici, i concetti sono tutti qui e non mi addentro oltre.</p>
+
+<h4>Varietà differenziabile</h4>
+
+<p>Una <strong>varietà differenziabile</strong> è una <strong>varietà topologica</strong> (quella descritta
+precedentemente), con la differenza che è possibile usare tutti gli strumenti
+dell&#39;analisi su di essa (derivate, integrali, equazioni differenziali,
+campi vettoriali, etc.). Questo si ottiene richiedendo che le funzioni di transizione
+siano differenziabili. Una varietà di classe \( C^k \) ha tutte le funzioni di
+transizione di class \( C^k \). </p>
+
+<h4>Sottovarietà</h4>
+
+<p>Una <strong>sottovarietà</strong> N è una varietà che si ottiene come sottoinsieme di un altra
+varietà, ha dimensione minore ed eredita la topologia e l&#39;atlante della varietà
+madre. Chiaramente le carte locali devono essere ristrette al sottoinsieme N
+(basta prendere \( U \cap N\) invece di U).</p>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Francesco Pasa - Content licensed under a
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US">
+                  Creative Commons BY-SA License.
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>
